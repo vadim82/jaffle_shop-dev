@@ -20,7 +20,31 @@ sources:
           - name: status
             tests:
               - accepted_values:
-                  values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+                  # values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+                  values: ['nothing_good']
+
+metrics:
+  - name: new_customers
+    label: New Customers
+    model: ref('dim_customers')
+    description: "The number of new paying customers"
+
+    type: count
+    sql: customer_id # superflous here, but shown as an example
+
+    timestamp: first_order
+    time_grains: [day, week, month]
+
+    dimensions:
+      - plan
+      - country
+    
+    filters:
+      - field: total_order_amount
+        operator: '>'
+        value: '0'
+
+    meta: { "barr": "test", "vadim": slackbot.py}       
 
 models:
   - name: dim_customers
@@ -105,3 +129,17 @@ models:
         description: Amount of the order (AUD) paid for by gift card
         tests:
           - not_null
+
+
+exposures:
+  - name: fct_orders_exposure
+    type: dashboard
+    maturity: medium
+    url: https://github.com/vadim82/jaffle_shop-dev
+    description: An exposure of Jaffle Shop orders.
+    depends_on:
+      - source('jaffle_shop','fct_orders')
+      - ref('fct_orders')
+    owner:
+      name: Barr Yaron
+      email: barr.yaron@dbtlabs.com
