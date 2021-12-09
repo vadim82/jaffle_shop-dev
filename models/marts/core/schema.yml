@@ -14,7 +14,7 @@ sources:
         max_loaded_at: order_date
         loaded_at_field: order_date
         columns:
-          - name: id
+          - name: order_id
             tests:
               - unique
               - not_null
