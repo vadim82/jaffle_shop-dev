@@ -10,7 +10,7 @@ sources:
       error_after: {count: 300, period: day}
     tables:
       - name: stg_customers
-      - name: stg_orders
+      - name: fct_orders
         max_loaded_at: order_date::timestamp
         loaded_at_field: order_date::timestamp
         columns:
@@ -54,6 +54,9 @@ models:
     columns:
       - name: customer_id
         description: This is a unique identifier for a customer
+        tags:
+          - tags for the win
+          - awsomeness
         tests:
           - unique
           - not_null
