@@ -5,7 +5,7 @@ with orders_last_year as (
 
 )
 select
-  customer_id
+  customer_id,
   count(*)
 from orders_last_year
 group by customer_id
