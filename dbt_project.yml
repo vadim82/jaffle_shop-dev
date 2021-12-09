@@ -22,4 +22,7 @@ models:
         materialized: view
         tags: ["staging", "hourly"]
 
-# comment 2
+snapshots:
+  jaffle_shop:
+    orders_snapshot:
+    customers_snapshot:
