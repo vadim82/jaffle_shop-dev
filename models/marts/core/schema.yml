@@ -1,28 +1,28 @@
 version: 2
 
 
-# sources:
-#   - name: jaffle_shop
-#     database: dbt-tutorial
-#     schema: dbt_metadata
-#     freshness:
-#       warn_after: {count: 7, period: day}
-#       error_after: {count: 30, period: day}
-#     tables:
-#       - name: stg_customers
-#       - name: stg_orders
-#         max_loaded_at: order_date
-#         loaded_at_field: order_date
-#         columns:
-#           - name: id
-#             tests:
-#               - unique
-#               - not_null
-#           - name: status
-#             tests:
-#               - accepted_values:
-#                   # values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
-#                   values: ['nothing_good']
+sources:
+  - name: jaffle_shop
+    database: dbt-tutorial
+    schema: dbt_metadata
+    freshness:
+      warn_after: {count: 7, period: day}
+      error_after: {count: 30, period: day}
+    tables:
+      - name: stg_customers
+      - name: stg_orders
+        max_loaded_at: order_date
+        loaded_at_field: order_date
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null
+          - name: status
+            tests:
+              - accepted_values:
+                  # values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+                  values: ['nothing_good']
 
 metrics:
   - name: new_customers
