@@ -146,7 +146,7 @@ exposures:
     depends_on:
       - ref('fct_orders')
       - ref('dim_customers')
-      - source('jaffle_shop', 'stg_orders')
+      - source('jaffle_shop', 'fct_orders')
       
     owner:
       name: Claire from Data
