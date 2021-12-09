@@ -9,12 +9,12 @@ sources:
       warn_after: {count: 7, period: day}
       error_after: {count: 30, period: day}
     tables:
-      - name: dim_customers
-      - name: fct_orders
+      - name: stg_customers
+      - name: stg_orders
         max_loaded_at: order_date
         loaded_at_field: order_date
         columns:
-          - name: id
+          - name: customer_id
             tests:
               - unique
               - not_null
