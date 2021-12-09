@@ -139,8 +139,8 @@ exposures:
     url: https://github.com/vadim82/jaffle_shop-dev
     description: An exposure of Jaffle Shop orders.
     depends_on:
-      - source('jaffle_shop','fct_orders')
-      - ref('fct_orders')
+      - source('jaffle_shop','stg_orders')
+      - ref('stg_orders')
     owner:
       name: Barr Yaron
       email: barr.yaron@dbtlabs.com
