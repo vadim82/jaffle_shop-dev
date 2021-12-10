@@ -83,6 +83,8 @@ models:
         description: Total value (AUD) of a customer's orders
 
   - name: fct_orders
+    +post-hook:
+      - grant usage on schema dbt_metadata to pg_read_all_settings      
     description: This table has basic information about orders, as well as some derived facts based on payments
 
     columns:
