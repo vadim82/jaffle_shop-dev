@@ -21,8 +21,8 @@ sources:
           - name: status
             tests:
               - accepted_values:
-                  # values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
-                  values: ['nothing_good']
+                  values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+                  # values: ['nothing_good']
 
 metrics:
   - name: new_customers
