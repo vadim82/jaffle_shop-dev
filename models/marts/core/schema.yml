@@ -4,7 +4,7 @@ version: 2
 sources:
   - name: jaffle_shop
     database: jaffle-shop-metadata
-    schema: dbt_metadata
+    schema: analytics
     freshness:
       warn_after: {count: 7, period: day}
       error_after: {count: 300, period: day}
