@@ -11,8 +11,8 @@ sources:
     tables:
       - name: stg_customers
       - name: fct_orders
-        max_loaded_at: order_date
-        loaded_at_field: order_date
+        max_loaded_at: order_date::timestamp
+        loaded_at_field: order_date::timestamp
         columns:
           - name: order_id
             tests:
